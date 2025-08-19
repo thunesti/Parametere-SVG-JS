@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Oppgave 121A</title>
+    </head>
+        <body>
+            <div>
+                <!-- <button onclick="addCircle()">Legg til sirkel</button> -->
+                <button onclick="addCircleFromInput()">Legg til sirkel</button>
+                <!-- <button onclick="moveCircle()">Flytt sirkel</button> -->
+                <label for="xValue">X-value:</label>
+                <input id="xValue" name="xValue" type="number" />
+                <label for="yValue">Y-value:</label>
+                <input id="yValue" name="yValue" type="number" />
+                <label for="bgColor">Bakgrunnsfarge:</label>
+                <select id="bgColor" name="bgColor">
+                    <option value="red">Rød</option>
+                    <option value="green">Grønn</option>
+                    <option value="blue">Blå</option>
+                    <option value="gray">Grå</option>
+                </select>
+                <label for="bgColor">Forgrunnsfarge:</label>
+                <input id="circleColor" for="circleColor" type="text" />
+            </div>
+            <br/>
+            <div>
+                <button onclick="addRectangle()">Legg til firkant</button>
+            </div>
+            <br/>
+            <div>
+                <svg 
+                id="mySvg"
+                width="800" 
+                height="600" 
+                style="background-color: lightgray;">
+                </svg>
+            </div>
+
+            <script>
+
+            /*
+
+            let x
+
+            function addCircle(x) {
+                x = 30;
+                document.getElementById('mySvg').innerHTML = `
+                    <circle cx=${x} cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
+                `;
+            }
+
+            function moveCircle(x) {
+                x = 70;
+                document.getElementById('mySvg').innerHTML = `
+                    <circle cx=${x} cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
+                `;
+            }
+
+            */
+
+            function addCircleFromInput() {
+                let xValue = document.getElementById('xValue').value;
+                let yValue = document.getElementById('yValue').value;
+                let bgColor = document.getElementById('bgColor').value;
+                let circleColor = document.getElementById('circleColor').value;
+                document.getElementById('mySvg').innerHTML = /*HTML*/`
+                    <circle cx=${xValue} cy=${yValue} r="40" stroke="green" stroke-width="4" fill=${circleColor} />            
+                `;
+                document.getElementById('mySvg').style = `background-color: ${bgColor}`;
+            }
+
+            function addRectangle() {
+                document.getElementById('mySvg').innerHTML += /*HTML*/`
+                <rect width="200" height="100" x="10" y="10"  fill="black" stroke="green" stroke-width="4"/>
+                `;
+            }
+
+            </script>
+
+        </body>
+</html>
